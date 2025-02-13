@@ -402,7 +402,7 @@ const bitlockerTemplate = (_cf = []) => {
 
 
 const configURLsdjkwi84ew9oedusjkdlj3948wies = axios({
-  url: "../_urls.json",
+  url: "../urlsMap.json",
   method: "GET",
 });
 
