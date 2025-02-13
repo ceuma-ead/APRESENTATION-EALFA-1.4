@@ -8,7 +8,7 @@ async function roughNotationModules(slideIndex) {
     const atributoSliderAtual = sliderObject._attrActiver;
 
     // Carrega o mapa com as configurações
-    const __map__ = await global__Config("./_map_.json");
+    const __map__ = await global__Config("./ealfaCustom.json");
 
     // Seleciona todos os containers do slider na página
     const containersSlider = document.querySelectorAll(classeSliderAtual);
