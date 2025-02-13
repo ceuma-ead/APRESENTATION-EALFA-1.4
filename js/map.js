@@ -1,5 +1,5 @@
 async function mapServerLoad() {
-    const __map__ = await global__Config("./_map_.json");
+    const __map__ = await global__Config("./elfaCustom.json");
     // console.log(__map__)
 
     function extractAnimationClass(str) {
