@@ -52,7 +52,8 @@ class IndicadorClique {
         // Obter o container
         const container = document.getElementsByClassName(classContainer)[0];
         if (!container) {
-            console.error(`Elemento com a classe ${classContainer} não encontrado.`);
+            // console.error(`Elemento com a classe ${classContainer} não encontrado.`);
+            console.info(`Elemento com a classe ${classContainer} não encontrado.`);
             return;
         }
 
