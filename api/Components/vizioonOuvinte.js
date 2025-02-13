@@ -1,7 +1,9 @@
 // Função global para parar o áudio
 function pararOuvinte() {
     // Cancela qualquer síntese de voz em andamento
-    window.speechSynthesis.cancel();
+    if (window.speechSynthesis && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
+        window.speechSynthesis.cancel();
+    }
 
     // Adicionar um pequeno intervalo para garantir que o `speechSynthesis` seja reinicializado
     const tentativaCancelamento = setInterval(() => {
@@ -1470,7 +1472,7 @@ async function vizioonOuvinte(slideIndex) {
     } else {
 
         try {
-      
+
             if (!configuracao || !configuracao.modulosAtivos) {
                 console.error("Configuração ou módulos ativos não encontrados.");
                 return;
