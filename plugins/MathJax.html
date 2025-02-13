@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>LaTeX Live Preview</title>
+    <script type="text/javascript" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        textarea {
+            width: 90%;
+            height: 100px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .output {
+            font-size: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            width: 90%;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Live LaTeX Preview</h2>
+    <p>Digite uma equação em LaTeX abaixo:</p>
+
+    <textarea id="latexInput">When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</textarea>
+
+    <h3>Pré-visualização:</h3>
+    <div id="latexOutput" class="output"></div>
+
+    <script>
+        function atualizarPreview() {
+            let inputText = document.getElementById("latexInput").value;
+            let outputDiv = document.getElementById("latexOutput");
+
+            // Atualiza a visualização LaTeX
+            outputDiv.innerHTML = inputText;
+            
+            // Renderiza o MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise([outputDiv]);
+            }
+        }
+
+        // Atualiza sempre que o usuário digitar
+        document.getElementById("latexInput").addEventListener("input", atualizarPreview);
+
+        // Inicializa o preview ao carregar a página
+        window.onload = atualizarPreview;
+    </script>
+
+</body>
+</html>
