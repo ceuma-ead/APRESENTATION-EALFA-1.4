@@ -573,11 +573,11 @@ const api = [
                                             <div class="col-12 col-md-3 text-center imgCardFlutuante">
                                                 <img src="${_prefixUnidade}homemsegurandoovo.png"
                                                     alt="Imagem: Homem segurando caixa de ovos de laboratório" class="rounded animationImg w-100">
-                                                <div>
-                                                    <p class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
-                                                    Fonte: Canva
-                                                    </p>
-                                                </div>
+                                               
+                                                    <div class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
+                                                        Fonte: Canva
+                                                    </div>
+                                          
                                             </div>
                                         </div>
                                     </div>
@@ -821,8 +821,8 @@ const api = [
                                         class="col-md-2-20 text-center position-relative   _desaparecer ">
                                         <img src="${_prefixUnidade}vegetaisestragados.png" class="img-fluid rounded"
                                             alt="Figura: Vegetais Estragados.">
-                                        <p class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Imagem:
-                                            Vegetais estragados. Fonte da imagem: Canva</p>
+                                        <div class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Imagem:
+                                            Vegetais estragados. Fonte da imagem: Canva</div>
                                     </div>
 
                                 </div>
@@ -1086,7 +1086,7 @@ const api = [
                                     <div class="col-md-12">
                                         <p>Os agentes indesejáveis podem causar doenças, ou então, prejudicar produção de alimentos, como por exemplo, a fabricação de iogurtes. Na pasteurização, é destruída parte da população de microrganismos presentes nos alimentos. Dentre estes microrganismos podem estra os que causam danos aos alimentos e os que podem causar algum tipo de doenças aos consumidores. O objetivo primeiro é eliminar os causadores de doenças. Após a aplicação da pasteurização, devem ser aplicados outros métodos de conservação, tais como: </p>
                                     </div>
-                                     <div class="row justify-content-center gap-1 mt-3">
+                                     <div class="row justify-content-center w-100 gap-1 mt-3">
                                         <!-- Imagem 1: Maior em telas grandes -->
                                         <div class="col-6 col-md-2 cursor-pointer">
                                             <img src="${_prefixUnidade}leitepasteurizado.png" onclick="abrirZoomist(this)" class="img-fluid w-100 h-100 rounded tippy-nome-img" alt="Imagem:Refrigeração Leite pasteurizado." data-content-tippy="Refrigeração Leite pasteurizado.">
@@ -1208,7 +1208,7 @@ const api = [
 
                                     <div class="col-md-4 text-center position-relative   _desaparecer ">
                                         <img src="${_prefixUnidade}pasteurizadorhtst.png" class="img-fluid rounded" alt="Figura: Método de Pasteurização rápida. Pasteurizador HTST. Fonte: Inoxpa. " />
-                                        <p class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Figura: Método de Pasteurização rápida. Pasteurizador HTST. Fonte: Inoxpa.</p>    
+                                        <div class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Figura: Método de Pasteurização rápida. Pasteurizador HTST. Fonte: Inoxpa.</div>    
                                     </div>
                                 </div>
                               
@@ -1320,7 +1320,7 @@ const api = [
                                     
                                     <div class="col-md-4 text-center position-relative   _desaparecer ">
                                         <img src="${_prefixUnidade}pasteurizadorltlt.png" class="img-fluid rounded" alt="Figura: Método de Pasteurização rápida. Pasteurizador tipo LTLT. Fonte: Suck Milk." />
-                                        <p class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Figura: Método de Pasteurização rápida. Pasteurizador tipo LTLT. Fonte: Suck Milk.</p>    
+                                        <div class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Figura: Método de Pasteurização rápida. Pasteurizador tipo LTLT. Fonte: Suck Milk.</div>    
                                     </div>
 
                                     <div class="col-md-9 mt-2">
@@ -1438,7 +1438,7 @@ const api = [
                                         <h4 style="color:#011c41; text-align:left;">Branqueamento</h4>
                                         <p>Para o caso de frutas e hortaliças, o branqueamento é indicado para desnaturar as enzimas dos alimentos que durante o período de armazenagem promovem descoloração e alterações de sabor e aroma. Nesse caso, o processo consiste em mergulhar o alimento em água aquecida ou insuflar vapor sobre o mesmo, por um curto espaço de tempo 2 a 10 minutos. Em seguida, é procedido o imediato resfriamento, geralmente em água fria, conforme mostrado nas imagens abaixo:</p>
                                     </div>
-                                     <div class="row justify-content-center gap-1 mt-3">
+                                     <div class="row justify-content-center gap-1 w-100 mt-3">
                                         <!-- Imagem 1: Maior em telas grandes -->
                                         <div class="col-6 col-md-2 cursor-pointer">
                                             <img src="${_prefixUnidade}aguaaquecida.png" onclick="abrirZoomist(this)"  class="img-fluid w-100  h-100 rounded tippy-nome-img" alt="Imagem:Água aquecida" data-content-tippy="Água aquecida">
@@ -1800,8 +1800,8 @@ const api = [
                                         class="col-md-4 text-center position-relative  _desaparecer ">
                                         <img src="${_prefixUnidade}RecravadeiraAutomatica.png" class="img-fluid rounded"
                                             alt="Figura: Vegetais Estragados." />
-                                        <p class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Figura: Recravadeira automática.
-Fonte: Máquinas Moreno.</p>
+                                        <div class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Figura: Recravadeira automática.
+Fonte: Máquinas Moreno.</div>
                                     </div>
 
                                 </div>
@@ -2513,7 +2513,7 @@ Fonte: Máquinas Moreno.</p>
                                         class="col-md-4 text-center position-relative  _desaparecer ">
                                         <img src="${_prefixUnidade}frutasSecas.png" class="img-fluid rounded"
                                             alt="Imagem: Frutas secas. Fonte da imagem: Canva" />
-                                        <p class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Imagem: Frutas secas. Fonte da imagem: Canva</p>
+                                        <div class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Imagem: Frutas secas. Fonte da imagem: Canva</div>
                                     </div>
                                 </div>
                             </div>
@@ -2631,8 +2631,8 @@ Fonte: Máquinas Moreno.</p>
                                             class="col-md-2-20 text-center position-relative  _desaparecer ">
                                             <img src="${_prefixUnidade}bacalhau.png" class="img-fluid rounded"
                                                 alt="Figura: Vegetais Estragados." />
-                                            <p class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Imagem:
-                                                Vegetais estragados. Fonte da imagem: Canva</p>
+                                            <div class="description-font position-absolute bottom-0 start-0 w-100" style="margin:0;">Imagem:
+                                                Vegetais estragados. Fonte da imagem: Canva</div>
                                         </div>
     
                                     </div>
@@ -3534,9 +3534,9 @@ Fonte: Máquinas Moreno.</p>
                                             <div class="col-12 col-md-3 text-center imgCardFlutuante">
                                                 <img src="${_prefixUnidade}imgDeAditivos.png"
                                                     alt="Imagem: pão sendo furado com espetos por formulas aditivas" class="rounded animationImg w-100">
-                                                <p class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
+                                                <div class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
                                                     Fonte: Canva
-                                                </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

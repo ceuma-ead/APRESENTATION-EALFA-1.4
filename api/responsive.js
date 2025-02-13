@@ -74,7 +74,7 @@ const responsivo = [
         "synchronous": `
 
                 .pagina-tipo-texto--box-texto p {
-                font-size: 1.5rem !important;
+                    font-size: 1.5rem !important;
                 }
         `,
 
