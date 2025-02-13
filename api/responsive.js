@@ -646,10 +646,6 @@ const responsivo = [
         }
 
 
-        .btn {
-        font-size: 1rem !important;
-        }
-
     `,
 
         // Atualização Forçada onde ele está aparecendo
@@ -772,7 +768,6 @@ const responsivo = [
         width: 50%;
         }
 
-       
 
                 .row {
         position: relative;
@@ -850,7 +845,7 @@ const responsivo = [
         }
 
         .btn {
-        font-size: 2rem !important;
+        font-size: 1rem !important;
         }
 
         .accordion-saibamais {
