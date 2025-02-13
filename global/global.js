@@ -402,12 +402,12 @@ const bitlockerTemplate = (_cf = []) => {
 
 
 const configURLsdjkwi84ew9oedusjkdlj3948wies = axios({
-  url: "./urls.json",
+  url: "../urls.json",
   method: "GET",
 });
 
 const __configuracoesServidor__ = axios({
-  url: "./server.conf",
+  url: "../server.conf",
   method: "GET",
   type: "env"
 });
