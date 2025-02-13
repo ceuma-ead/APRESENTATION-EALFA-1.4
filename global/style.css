@@ -111,15 +111,16 @@ img {
 }
 
 .description-font {
+    hyphens: none !important;
     width: 100%;
     padding: 0.2rem;
     color: white !important;
-    text-align: center;
+    text-align: left !important;
+    font-size: .7rem !important;
     background-color: rgba(24, 24, 24, 0.546);
     font-style: normal;
     font-weight: none;
     font-family: var(--familia-da-font-paragrafo);
 
 }
-
 
