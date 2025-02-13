@@ -13,7 +13,6 @@ function pararOuvinte() {
         console.error("Erro ao cancelar áudio:", error);
     }
 
-
     // Adicionar um pequeno intervalo para garantir que o `speechSynthesis` seja reinicializado
     const tentativaCancelamento = setInterval(() => {
         if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {

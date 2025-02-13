@@ -573,9 +573,11 @@ const api = [
                                             <div class="col-12 col-md-3 text-center imgCardFlutuante">
                                                 <img src="${_prefixUnidade}homemsegurandoovo.png"
                                                     alt="Imagem: Homem segurando caixa de ovos de laboratório" class="rounded animationImg w-100">
-                                                <p class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
+                                                <div>
+                                                    <p class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
                                                     Fonte: Canva
-                                                </p>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
