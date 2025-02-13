@@ -1,5 +1,5 @@
 {
     "urls":{
-        "config":"../modules/config.json"
+        "config":"./modules/config.json"
     }
 }
