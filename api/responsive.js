@@ -110,6 +110,42 @@ const responsivo = [
         //Onde o Estilo tem que aparecer
         "Tipo": "All", // Pode ser "All" para todas as páginas ou um número específico para uma página
         //Que tipo de quebra Tem que Fazer
+        "media": "(min-width: 600px) and (max-width: 1024px)  ", // Apenas a condição dentro dos parênteses
+        //Estilos que podem vir adicionais
+        "synchronous": `
+
+             
+                
+        `,
+
+        // Atualização Forçada onde ele está aparecendo
+        "variantes": `
+        --tamanho-de-font-para-paragrafo-sidebar=[1rem];
+        --tamanho-dos-icones-siderbar=[2rem];
+        --tamanho-x-y-imagem=[7%];
+        
+        // Tamanho do container LogoCeuma;
+        --logo-div-y=[4rem];
+        --logo-div-x=[4rem];
+
+        `,
+        "atualizacaoBrutaElementos": [
+            // Exemplos de atualizações brutas de elementos
+            // {
+            // "Elemento":"p",
+            // "Ranger":[...10] // ranger 1 a 10 Ex: [1,2,3,4] ou [...10] ou all
+            // "scriptAtualizacao":`
+            // [document.querySelectorAll(p)] => var[p] {
+            // p.fontSize = 2rem;
+            // }
+            // `
+            // }
+        ]
+    },
+    {
+        //Onde o Estilo tem que aparecer
+        "Tipo": "All", // Pode ser "All" para todas as páginas ou um número específico para uma página
+        //Que tipo de quebra Tem que Fazer
         "media": "(min-width: 1366px) and (max-width: 1248px) ", // Apenas a condição dentro dos parênteses
         //Estilos que podem vir adicionais
         "synchronous": `
@@ -851,8 +887,6 @@ const responsivo = [
         .accordion-saibamais {
         font-size: 2rem;    
         }
-
-
         
         `,
 

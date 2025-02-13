@@ -1280,7 +1280,60 @@ button.eva_button____lista {
 
 }
 
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+    .container-modal-card-horizontal-text-img {
+        flex-direction: column;
+        /* background-color: #004085; */
+        gap: 1rem;
+    }
+
+    .container-modal-card-horizontal-text-img .imgCardFlutuante {
+        all: unset;
+
+    }
+
+    .container-modal-card-horizontal-text-img .content-card {
+        width: 100%;
+    }
+
+    .accordion-saibamais {
+        padding: 12px;
+    }
+
+    .panel-saibamais {
+        padding: 0 12px;
+    }
+
+    .container-livro-img-thumb-content {
+        /* background-color: red; */
+        overflow: hidden;
+        height: 10rem;
+        border-radius: 0.1rem;
+    }
+
+    .container-livro-img-thumb {
+        flex-direction: column;
+    }
+
+    #thumbnails-container {
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+
+    .scroll-up {
+        position: absolute;
+        left: -10%;
+        top: 40%;
+        transform: rotate(-90deg);
+    }
+
+    .scroll-down {
+
+        right: -10%;
+        top: 40%;
+        transform: rotate(-90deg);
+    }
+}
 
 @media screen and (max-width: 480px) {
 

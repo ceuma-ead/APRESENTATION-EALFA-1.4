@@ -563,22 +563,24 @@ const api = [
                             
                                     <div class="row d-flex flex-column flex-md-row align-items-start justify-content-start ">
                                         <div class="row w-100 position-relative container-modal-card-horizontal-text-img">
+                                        
                                             <!-- Conteúdo do cartão -->
                                             <div class="col-12 col-md-9-5 d-flex flex-column gap-4 p-2 rounded text-justify"
                                                 style="background: linear-gradient(90deg, rgba(192,40,39,1) 42%, rgba(237,119,118,1) 100%);">
                                                 <p class="text-branco">A industrialização dos produtos agropecuários pode contribuir consideravelmente na melhoria da dieta de um país e do estado nutricional dos seus habitantes. A amplitude dessa contribuição depende de diversos fatores, como a existência de uma agricultura desenvolvida que possa receber uma tecnologia avançada e do nível econômico e poder aquisitivo da população.</p>
                                                 <p class="text-branco">Ademais, a Tecnologia de Alimentos desempenha um papel crucial em nossa sociedade moderna e tem impacto direto na vida de todos nós. Com o aumento da população mundial, a demanda por alimentos cresce exponencialmente.</p>
                                             </div>
+
                                             <!-- Imagem que vai ao lado ou abaixo dependendo do dispositivo -->
                                             <div class="col-12 col-md-3 text-center imgCardFlutuante">
                                                 <img src="${_prefixUnidade}homemsegurandoovo.png"
                                                     alt="Imagem: Homem segurando caixa de ovos de laboratório" class="rounded animationImg w-100">
                                                
-                                                    <div class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
-                                                        Fonte: Canva
-                                                    </div>
-                                          
+                                                <div class="description-descricao position-absolute bottom-0 start-0 w-100" style="margin:0;">
+                                                    Fonte: Canva
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
