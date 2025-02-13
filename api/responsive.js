@@ -38,6 +38,8 @@ const responsivo = [
         font-size: 2rem;
         }
 
+        
+
         `,
 
         // Atualização Forçada onde ele está aparecendo
@@ -76,6 +78,8 @@ const responsivo = [
                 .pagina-tipo-texto--box-texto p {
                     font-size: 1.5rem !important;
                 }
+                
+                
         `,
 
         // Atualização Forçada onde ele está aparecendo
@@ -639,6 +643,11 @@ const responsivo = [
 
         .f-carousel__thumbs {
         width: 100%
+        }
+
+
+        .btn {
+        font-size: 1rem !important;
         }
 
     `,

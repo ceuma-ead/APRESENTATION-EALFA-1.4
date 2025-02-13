@@ -8,6 +8,7 @@ function renderPages() {
 
         // Itera sobre os dados da API
         api.forEach(pageData => {
+            
             if (pageData.tipo === 'Imagem') {
                 // Cria um artigo para cada página
                 const article = document.createElement('article');
@@ -73,7 +74,6 @@ function renderPages() {
 
             };
 
-
             if (pageData.tipo === 'Atividade') {
                 // Cria um artigo para cada página
                 const article = document.createElement('article');
@@ -104,6 +104,7 @@ function renderPages() {
 
 
             };
+
         });
 
     } else {
