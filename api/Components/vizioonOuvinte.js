@@ -1,9 +1,18 @@
 // Função global para parar o áudio
 function pararOuvinte() {
-    // Cancela qualquer síntese de voz em andamento
-    if (window.speechSynthesis && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
-        window.speechSynthesis.cancel();
+    // Verifica se a API está disponível antes de usar
+    if (!window.speechSynthesis) {
+        console.error("Navegador não suporta síntese de voz");
+        return;
     }
+
+    // Tenta cancelar a síntese de voz
+    try {
+        window.speechSynthesis.cancel();
+    } catch (error) {
+        console.error("Erro ao cancelar áudio:", error);
+    }
+
 
     // Adicionar um pequeno intervalo para garantir que o `speechSynthesis` seja reinicializado
     const tentativaCancelamento = setInterval(() => {
