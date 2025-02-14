@@ -14,7 +14,18 @@
             "._sugirEsquerdaAndando_4 => [ animate__animated animate__fadeInLeft animate__slow animate__delay-4s  ] ",
             "._sugirEsquerdaAndando_5 => [ animate__animated animate__fadeInLeft animate__slow animate__delay-5s  ] ",
             "._sugirEsquerdaAndando_6 => [ animate__animated animate__fadeInLeft animate__slow animate__delay-6s  ] ",
-            "._sugirEsquerdaAndando_7 => [ animate__animated animate__fadeInLeft animate__slow animate__delay-7s  ] "
+            "._sugirEsquerdaAndando_8 => [ animate__animated animate__fadeInLeft animate__slow animate__delay-8s  ] ",
+            "._sugirEsquerdaAndando_9 => [ animate__animated animate__fadeInLeft animate__slow animate__delay-9s  ] ",
+
+
+            "._sugirDireitaAndando_1 => [ animate__animated animate__fadeInRight animate__slow animate__delay-1s  ] ",
+            "._sugirDireitaAndando_2 => [ animate__animated animate__fadeInRight animate__slow animate__delay-2s  ] ",
+            "._sugirDireitaAndando_3 => [ animate__animated animate__fadeInRight animate__slow animate__delay-3s  ] ",
+            "._sugirDireitaAndando_4 => [ animate__animated animate__fadeInRight animate__slow animate__delay-4s  ] ",
+            "._sugirDireitaAndando_5 => [ animate__animated animate__fadeInRight animate__slow animate__delay-5s  ] ",
+            "._sugirDireitaAndando_6 => [ animate__animated animate__fadeInRight animate__slow animate__delay-6s  ] ",
+            "._sugirDireitaAndando_8 => [ animate__animated animate__fadeInRight animate__slow animate__delay-8s  ] ",
+            "._sugirDireitaAndando_9 => [ animate__animated animate__fadeInRight animate__slow animate__delay-9s  ] "
         ] 
     },
     
