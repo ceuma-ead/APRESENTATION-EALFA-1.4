@@ -1,9 +1,11 @@
 
 // abrir menu anotação
 const btn_abriranotacao = document.querySelector(".openAnnotation");
+
 btn_abriranotacao.addEventListener("click", function (event) {
+    filtrarTitulo().destroy();
     event.stopPropagation();
-    abrirAnotacoes()
+    abrirAnotacoes();
 })
 
 function Update() {
@@ -99,24 +101,28 @@ function renderAnnotation(annotationItem) {
     }
 
     // Evento para remover a anotação ao clicar no ícone de lixeira
-    newAnnotation.querySelector('.delete-icon').addEventListener('click', function () {
+    newAnnotation.querySelector('.delete-icon').addEventListener('click', function (event) {
+        event.stopPropagation()
         abrirAnotacoes();
         removeAnnotation(annotationItem.id);
         checkEmptyAnnotationsContainer(); // Verifica se o contêiner está vazio após remover
     });
 
     // Evento para baixar a anotação como um arquivo .txt
-    newAnnotation.querySelector('.download-icon').addEventListener('click', function () {
+    newAnnotation.querySelector('.download-icon').addEventListener('click', function (event) {
+        event.stopPropagation()
         downloadAnnotation(annotationItem);
     });
 
     // Evento para alterar a cor da anotação ao clicar no ícone de paleta
-    newAnnotation.querySelector('.color-icon').addEventListener('click', function () {
+    newAnnotation.querySelector('.color-icon').addEventListener('click', function (event) {
+        event.stopPropagation()
         changeAnnotationColor(newAnnotation, annotationItem.id);
     });
 
     // Evento para salvar o novo título quando o usuário editar e sair do campo (blur)
-    newAnnotation.querySelector('.ribbon').addEventListener('blur', function () {
+    newAnnotation.querySelector('.ribbon').addEventListener('blur', function (event) {
+        event.stopPropagation()
         const updatedTitle = this.textContent.trim();
         if (updatedTitle !== annotationItem.title) {
             // Atualiza o título da anotação
@@ -127,7 +133,7 @@ function renderAnnotation(annotationItem) {
     });
 
     // Evento para salvar o texto quando o usuário editar e sair do campo (blur)
-    newAnnotation.querySelector('p').addEventListener('blur', function () {
+    newAnnotation.querySelector('p').addEventListener('blur', function (event) {
         const updatedText = this.textContent.trim();
         if (updatedText !== annotationItem.Texto) {
             // Atualiza o texto da anotação
@@ -293,11 +299,12 @@ function showAutoCloseAlert(logs, id = "") {
         }
     }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
+            fecharMenuAnotacoes();
             console.log('showAutoCloseAlert: Alerta fechado pelo timer.');
             const searchInput = document.querySelector('#searchInput');
             searchInput.value = "";
             filterAnnotations(`id:${id}`);
-           
+
             abrirAnotacoes()
         }
     }).catch((error) => {
@@ -306,9 +313,10 @@ function showAutoCloseAlert(logs, id = "") {
 }
 // Função para criar uma anotação
 async function createAnnotation(_anotacoesTexto = "") {
-    fecharMenuAnotacoes();
+
     try {
         if (!_anotacoesTexto || _anotacoesTexto === "") {
+
             // Obtém o resultado do Swal.fire sem usar .then()
             const result = await Swal.fire({
                 title: 'Tomar nota',
@@ -335,7 +343,7 @@ async function createAnnotation(_anotacoesTexto = "") {
                     title: title,
                     Texto: texto
                 };
-                
+
                 console.log('createAnnotation: Criando nova anotação.', newAnnotation);
                 annotation.save(newAnnotation, function (savedAnnotation) {
                     console.log(`createAnnotation: Anotação salva: ${savedAnnotation.id}`);
@@ -349,6 +357,7 @@ async function createAnnotation(_anotacoesTexto = "") {
                     > Título: ${title}
                     > Texto: ${texto}
                 `;
+
                 showAutoCloseAlert(logs, newAnnotation.id);
                 checkEmptyAnnotationsContainer();
             } else {
@@ -364,7 +373,7 @@ async function createAnnotation(_anotacoesTexto = "") {
                 title: title,
                 Texto: textoAnotacao
             };
-            
+
             console.log('createAnnotation: Criando nova anotação.', newAnnotation);
             annotation.save(newAnnotation, function (savedAnnotation) {
                 console.log(`createAnnotation: Anotação salva: ${savedAnnotation.id}`);
@@ -394,10 +403,9 @@ async function createAnnotation(_anotacoesTexto = "") {
 
 document.querySelector(".abrirPlusAnnotation")?.addEventListener("click", function (event) {
     event.stopPropagation();
-    createAnnotation()
+    createAnnotation();
 });
 // Adiciona o evento de clique no botão de adicionar anotação
-document.querySelector('footer button').addEventListener('click', createAnnotation);
 
 // Função para remover uma anotação com confirmação
 async function removeAnnotation(id) {
@@ -413,11 +421,8 @@ async function removeAnnotation(id) {
             confirmButtonText: 'Sim, remover!',
             cancelButtonText: 'Cancelar',
             heightAuto: false,
-            
+
         });
-
-
-
 
         if (result.isConfirmed) {
             // Se confirmado, encontra e remove a anotação
@@ -443,17 +448,18 @@ async function removeAnnotation(id) {
                         if (result.isConfirmed) {
                             checkEmptyAnnotationsContainer();
                             Update();
-                            abrirAnotacoes()
+                            abrirAnotacoes();
                         }
                     })
-
-
 
                 } else {
                     console.log(`removeAnnotation: Anotação com ID ${id} não encontrada.`);
                 }
             });
         } else {
+            checkEmptyAnnotationsContainer();
+            Update();
+            abrirAnotacoes();
             console.log('removeAnnotation: Remoção da anotação cancelada.');
         }
     } catch (error) {
@@ -478,19 +484,19 @@ function downloadAnnotation(annotationItem) {
 
 function removeAnnotationFromUI(annotationId = []) {
 
-    
-    if(Array.isArray(annotationId)){
-        annotationId.map(_i =>{
+
+    if (Array.isArray(annotationId)) {
+        annotationId.map(_i => {
             // console.log(_i)
             // Busca a anotação pelo dataset-id
             const annotationToRemove = document.querySelector(`.content-box-anotation[data-id="${_i}"]`);
-        
+
             if (annotationToRemove) {
                 // Remove o elemento da interface
                 annotationToRemove.remove();
-        
+
                 console.log(`Anotação com ID ${annotationId} removida da interface.`);
-                
+
                 // Verifica se o contêiner está vazio e toma ações apropriadas
                 checkEmptyAnnotationsContainer();
                 abrirAnotacoes()
@@ -499,7 +505,7 @@ function removeAnnotationFromUI(annotationId = []) {
             }
         })
     }
-    
+
 }
 
 // Funções para os comandos
@@ -516,12 +522,12 @@ function limparAnotacoes() {
         heightAuto: false,
     }).then((result) => {
         if (result.isConfirmed) {
-            const dropAnnotation =  annotation.drop();
+            const dropAnnotation = annotation.drop();
             // console.log(dropAnnotation)
 
             removeAnnotationFromUI(dropAnnotation)
             checkEmptyAnnotationsContainer();
-       
+
             abrirAnotacoes();
         }
     });
@@ -648,7 +654,7 @@ function filterAnnotations(searchTerm = "", procurarTitulo = "") {
     // Atualizar o contador dinâmico
     updateSearchIcon(searchIcon, matchingElements.length, searchTerm || procurarTitulo, countFoundResult);
 
-     // Atualizar o contador visual com o número exato de resultados encontrados
+    // Atualizar o contador visual com o número exato de resultados encontrados
     if (matchingElements.length > 0) {
         countFoundResult.innerHTML = `<p class="text-light badge bg-secondary">${matchingElements.length}</p>`;
     } else {
@@ -791,15 +797,17 @@ document.querySelector('#searchInput').addEventListener('input', function () {
 //     }
 //   };
 
-const buttonFilter = document.querySelector("._dropPlushAnnotation");
-const containerFiltroChanger = document.querySelector('.filtros-input-mod');
 
-buttonFilter.addEventListener("click",function(event){
-    event.stopPropagation();
-    filtrarTitulo(event);
-})
 
-function filtrarTitulo(event) {
+function filtrarTitulo(event = null) {
+
+    const buttonFilter = document.querySelector("._dropPlushAnnotation");
+    const containerFiltroChanger = document.querySelector('.filtros-input-mod');
+
+    buttonFilter.addEventListener("click", function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    })
 
     // // Criar instância
     // const filtro = new FilterVision('root', {
@@ -846,7 +854,7 @@ function filtrarTitulo(event) {
     const filtrar = {
         titulo: (event) => {
             // console.log(event)
-            
+
             const idNewFilter = `searchInput-${event.textContent.trim()}`;
             // console.log(buttonFilter.textContent)
             buttonFilter.textContent = event.textContent;
@@ -858,7 +866,7 @@ function filtrarTitulo(event) {
 
             newElementoFiltro.addEventListener("input", function () {
                 // console.log('Título digitado:', valor);
-                if(this.value === ""){
+                if (this.value === "") {
                     atualizarIcon();
                 }
 
@@ -867,7 +875,7 @@ function filtrarTitulo(event) {
 
         },
         conteudo: (event) => {
-        
+
             const idNewFilter = `searchInput-${event.textContent.trim()}`;
             // console.log(buttonFilter.textContent)
             buttonFilter.textContent = reduzirTexto(event.textContent, 4);
@@ -879,7 +887,7 @@ function filtrarTitulo(event) {
 
             newElementoFiltro.addEventListener("input", function () {
                 // console.log('Título digitado:', valor);
-                if(this.value === ""){
+                if (this.value === "") {
                     atualizarIcon();
                 }
 
@@ -888,7 +896,7 @@ function filtrarTitulo(event) {
         },
 
         destroy: (event) => {
-            
+
             const idNewFilter = `searchInput`;
             buttonFilter.textContent = "Filtrar";
             atualizarIcon();
@@ -903,8 +911,8 @@ function filtrarTitulo(event) {
                 }
                 filterAnnotations(this.value);
             });
-            
-           
+
+
         }
     }
 
@@ -917,9 +925,6 @@ function filtrarTitulo(event) {
 annotation.find({}, function (results) {
     results.forEach(renderAnnotation);
 });
-
-// Adiciona o evento de clique no botão de adicionar anotação
-document.querySelector('footer button').addEventListener('click', createAnnotation);
 
 
 document.querySelector('.mudarPosicaoAnnotation').addEventListener('click', function () {

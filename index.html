@@ -270,12 +270,12 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item d-flex align-items-center gap-1 justify-content-between" href="#"
-                                            onclick="filtrarTitulo().titulo(this)">Título <i class="bi bi-sort-alpha-up-alt"></i></a></li>
+                                            onclick="filtrarTitulo().titulo(this)">Título <i data-lucide="arrow-up-right"></i></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li><a class="dropdown-item d-flex align-items-center justify-content-between gap-1" href="#"
-                                            onclick="filtrarTitulo().conteudo(this)">Conteúdo <i class="bi bi-filter-square"></i></a></li>
+                                            onclick="filtrarTitulo().conteudo(this)">Conteúdo <i data-lucide="arrow-up-right"></i></a></li>
                                 </ul>
                             </div>
                             <div class="w-100 h-100 filtros-input-mod">
@@ -291,7 +291,9 @@
                             </span>
                         </div>
 
-                        <button class="abrirPlusAnnotation"><i data-lucide="circle-plus"></i></button>
+                        <button class="abrirPlusAnnotation btn-add-annotation">
+                            <i data-lucide="circle-plus"></i>
+                        </button>
 
                     </footer>
 
