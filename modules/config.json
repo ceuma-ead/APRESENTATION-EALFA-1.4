@@ -59,7 +59,7 @@
                 "action":"none"
             },
             "ceumaAI":{
-                "ativo":true,
+                "ativo":false,
                 "dynamicClass": [".abrir-resumo","#resumo"],
                 "action":"none"
             },
