@@ -306,6 +306,7 @@ function showAutoCloseAlert(logs, id = "") {
 }
 // Função para criar uma anotação
 async function createAnnotation(_anotacoesTexto = "") {
+    fecharMenuAnotacoes();
     try {
         if (!_anotacoesTexto || _anotacoesTexto === "") {
             // Obtém o resultado do Swal.fire sem usar .then()
@@ -503,7 +504,7 @@ function removeAnnotationFromUI(annotationId = []) {
 
 // Funções para os comandos
 function limparAnotacoes() {
-
+    fecharMenuAnotacoes();
     Swal.fire({
         title: "Deseja Remover Tudo?",
         text: "Essa Ação Não pode ser Revestida",
@@ -520,6 +521,7 @@ function limparAnotacoes() {
 
             removeAnnotationFromUI(dropAnnotation)
             checkEmptyAnnotationsContainer();
+       
             abrirAnotacoes();
         }
     });
@@ -797,7 +799,7 @@ buttonFilter.addEventListener("click",function(event){
     filtrarTitulo(event);
 })
 
-function filtrarTitulo() {
+function filtrarTitulo(event) {
 
     // // Criar instância
     // const filtro = new FilterVision('root', {
