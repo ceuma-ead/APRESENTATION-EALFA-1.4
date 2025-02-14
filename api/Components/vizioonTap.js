@@ -119,6 +119,7 @@ class IndicadorClique {
         fecharMenuAnotacoes();
         fecharMenuSumario();
         fecharMenuMarcacao();
+        fecharResumo();
     
         // Usar Tippy para criar o indicador
         const instance = tippy(elemento, {
