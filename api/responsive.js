@@ -280,9 +280,6 @@ const responsivo = [
        /* padding: 0 0.5rem; */
         }
 
-        .container-searcListKeyWord button {
-        margin: 0.2rem;
-        }
 
         .render-menu-Annotation {
         padding-right: 0;

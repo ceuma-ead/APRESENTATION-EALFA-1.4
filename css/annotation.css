@@ -187,7 +187,6 @@
     height: 2rem;
     border-radius: 100%;
     /* background-color: red; */
-
     padding: 0.5;
 }
 
@@ -195,7 +194,7 @@
     display: flex;
     align-items: center;
     height: 3rem;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
     justify-content: center;
     border: 2px solid var(--cor-geral-fundo-e-componentes);
     margin: 0.5rem 0;
@@ -250,6 +249,7 @@
     align-items: center;
     justify-content: space-between;
     /* padding: 0 0.5rem; */
+    gap:0.5rem;
 }
 
 .container-searcListKeyWord .abrirPlusAnnotation {
@@ -261,7 +261,7 @@
     width: 20%;
     height: 100%;
     background: #14AE5C;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
     
 }
 ._dropPlushAnnotation{
@@ -275,6 +275,7 @@
     background: #565e64;
         color: #fff !important;
     font-size: 14px;
+    /* border-radius: 0.5rem 0 0; */
 }
 
 

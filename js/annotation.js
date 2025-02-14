@@ -1,36 +1,10 @@
-// Função para verificar se o contêiner de anotações está vazio
-function checkEmptyAnnotationsContainer() {
-    const renderMenuDiv = document.querySelector('.render-menu-Annotation');
 
-    // Obtém todos os filhos, exceto a mensagem de "vazio"
-    const children = Array.from(renderMenuDiv.children);
-    const nonEmptyChildren = children.filter(child => !child.classList.contains('empty-annotation-message'));
-
-    // Verifica se o contêiner está vazio, desconsiderando a mensagem de "vazio"
-    if (nonEmptyChildren.length === 0) {
-        // Se a mensagem de "vazio" não estiver presente, adicione-a
-        let emptyMessage = renderMenuDiv.querySelector('.empty-annotation-message');
-        if (!emptyMessage) {
-            emptyMessage = document.createElement('div');
-            emptyMessage.classList.add('empty-annotation-message');
-            emptyMessage.innerHTML = `
-                <div class="d-flex align-content-center flex-column justify-content-center w-100 h-100 align-items-center">
-                    <img src="./assets/list.gif" alt="list-is-empty-unscreen1.gif" style="width:20%;" >
-                    <p style="color:#000;">Nada aqui ainda...</p>
-                </div>
-            `;
-            renderMenuDiv.appendChild(emptyMessage);
-        }
-        return false; // Retorna false porque o contêiner está vazio
-    } else {
-        // Remove a mensagem de "vazio" se ela existir
-        const emptyMessage = renderMenuDiv.querySelector('.empty-annotation-message');
-        if (emptyMessage) {
-            renderMenuDiv.removeChild(emptyMessage);
-        }
-        return true; // Retorna true porque o contêiner tem anotações
-    }
-}
+// abrir menu anotação
+const btn_abriranotacao = document.querySelector(".openAnnotation");
+btn_abriranotacao.addEventListener("click", function (event) {
+    event.stopPropagation();
+    abrirAnotacoes()
+})
 
 function Update() {
     // Exemplo de uso
@@ -47,8 +21,6 @@ function Update() {
     }
 
 }
-
-checkEmptyAnnotationsContainer()
 
 function renderAnnotation(annotationItem) {
     const renderMenuDiv = document.querySelector('.render-menu-Annotation');
@@ -128,7 +100,7 @@ function renderAnnotation(annotationItem) {
 
     // Evento para remover a anotação ao clicar no ícone de lixeira
     newAnnotation.querySelector('.delete-icon').addEventListener('click', function () {
-        abrirConfigurcoesBaseMenu();
+        abrirAnotacoes();
         removeAnnotation(annotationItem.id);
         checkEmptyAnnotationsContainer(); // Verifica se o contêiner está vazio após remover
     });
@@ -256,43 +228,44 @@ function changeAnnotationColor(annotationElement, annotationId) {
 }
 
 // Função para abrir/fechar o menu de configurações de anotações automatico
-function abrirConfigurcoesBaseMenu() {
-    const menuAnotacoes = document.querySelector('.sidebar-menu-Annotation');
-    const ButtonMenuAnotacoes = document.querySelector(".openAnnotation");
-    const iconAnnotation = checkEmptyAnnotationsContainer();
+// function abrirConfigurcoesBaseMenu() {
+//     const menuAnotacoes = document.querySelector('.sidebar-menu-Annotation');
+//     const ButtonMenuAnotacoes = document.querySelector(".openAnnotation");
+//     const iconAnnotation = checkEmptyAnnotationsContainer();
 
-    if (!menuAnotacoes || !ButtonMenuAnotacoes) {
-        console.log(menuAnotacoes);
-        console.log(ButtonMenuAnotacoes);
-        console.error('abrirConfigurcoesBaseMenu: Elementos não encontrados.');
-        return;
-    }
+//     if (!menuAnotacoes || !ButtonMenuAnotacoes) {
+//         console.log(menuAnotacoes);
+//         console.log(ButtonMenuAnotacoes);
+//         console.error('abrirConfigurcoesBaseMenu: Elementos não encontrados.');
+//         return;
+//     }
 
-    menuAnotacoes.classList.toggle('open-annotation');
+//     menuAnotacoes.classList.toggle('open-annotation');
 
-    // Atualiza o ícone e o texto com base no estado do menu
-    if (menuAnotacoes.classList.contains('open-annotation')) {
-        ButtonMenuAnotacoes.innerHTML = `
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            `
-        console.log('abrirConfigurcoesBaseMenu: Menu aberto.');
-    } else {
-        ButtonMenuAnotacoes.innerHTML = `
-        ${iconAnnotation ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticker"><path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/><path d="M14 3v4a2 2 0 0 0 2 2h4"/><path d="M8 13h.01"/><path d="M16 13h.01"/><path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1"/></svg>`
-                :
-                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticky-note"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></svg> `}
-    `
+//     // Atualiza o ícone e o texto com base no estado do menu
+//     if (menuAnotacoes.classList.contains('open-annotation')) {
+//         ButtonMenuAnotacoes.innerHTML = `
+//                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+//             `
+//         console.log('abrirConfigurcoesBaseMenu: Menu aberto.');
+//     } else {
+//         ButtonMenuAnotacoes.innerHTML = `
+//         ${iconAnnotation ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticker"><path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/><path d="M14 3v4a2 2 0 0 0 2 2h4"/><path d="M8 13h.01"/><path d="M16 13h.01"/><path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1"/></svg>`
+//                 :
+//                 `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticky-note"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></svg> `}
+//     `
 
-        console.log('abrirConfigurcoesBaseMenu: Menu fechado.');
-    }
+//         console.log('abrirConfigurcoesBaseMenu: Menu fechado.');
+//     }
 
-}
+// }
 
 // if(typeof abrirConfigurcoesBaseMenu === "function" ){
 //     abrirConfigurcoesBaseMenu()
 // }
 
 // Função para exibir o alerta com fechamento automático e logs
+
 function showAutoCloseAlert(logs, id = "") {
     let timerInterval;
     Swal.fire({
@@ -300,6 +273,7 @@ function showAutoCloseAlert(logs, id = "") {
         html: `
             <div>
                 <p>Aguarde</p>
+                <b></b>
                 <!-- <textarea class="swal2-textarea" style="width:80%;" id="swal2-textarea" readonly>${logs}</textarea> -->
             </div>
         `,
@@ -307,13 +281,12 @@ function showAutoCloseAlert(logs, id = "") {
         heightAuto: false,
         timerProgressBar: true,
         allowOutsideClick: false,
-
         didOpen: () => {
             Swal.showLoading();
-            const timer = Swal.getPopup().querySelector('b');
-            timerInterval = setInterval(() => {
-                timer.textContent = `${Swal.getTimerLeft()}`;
-            }, 100);
+            // const timer = Swal.getPopup().querySelector('b');
+            // timerInterval = setInterval(() => {
+            //     timer.textContent = `${Swal.getTimerLeft()}`;
+            // }, 100);
         },
         willClose: () => {
             clearInterval(timerInterval);
@@ -323,19 +296,18 @@ function showAutoCloseAlert(logs, id = "") {
             console.log('showAutoCloseAlert: Alerta fechado pelo timer.');
             const searchInput = document.querySelector('#searchInput');
             searchInput.value = "";
-            // searchInput.value = `id:${id}`
             filterAnnotations(`id:${id}`);
-            abrirConfigurcoesBaseMenu();
+           
+            abrirAnotacoes()
         }
     }).catch((error) => {
         console.error('showAutoCloseAlert: Erro ao exibir alerta.', error);
     });
 }
-
 // Função para criar uma anotação
 async function createAnnotation(_anotacoesTexto = "") {
     try {
-        if (_anotacoesTexto === "" || typeof _anotacoesTexto === "undefined") {
+        if (!_anotacoesTexto || _anotacoesTexto === "") {
             // Obtém o resultado do Swal.fire sem usar .then()
             const result = await Swal.fire({
                 title: 'Tomar nota',
@@ -354,19 +326,16 @@ async function createAnnotation(_anotacoesTexto = "") {
 
             // Verifica se o usuário confirmou e forneceu texto
             if (result.isConfirmed && result.value) {
-                const texto = result.value;
+                const texto = String(result.value);
                 console.log('createAnnotation: Texto fornecido para anotação.');
-
                 const title = texto.split(' ')[0] || 'Anotação sem título';
-
                 const newAnnotation = {
                     id: new Date().getTime().toString(),
                     title: title,
                     Texto: texto
                 };
-
+                
                 console.log('createAnnotation: Criando nova anotação.', newAnnotation);
-
                 annotation.save(newAnnotation, function (savedAnnotation) {
                     console.log(`createAnnotation: Anotação salva: ${savedAnnotation.id}`);
                     renderAnnotation(savedAnnotation);
@@ -379,54 +348,53 @@ async function createAnnotation(_anotacoesTexto = "") {
                     > Título: ${title}
                     > Texto: ${texto}
                 `;
-
                 showAutoCloseAlert(logs, newAnnotation.id);
                 checkEmptyAnnotationsContainer();
             } else {
                 console.log('createAnnotation: Nenhum texto fornecido.');
             }
-        }
-        else {
-            if (_anotacoesTexto) {
-                console.log('createAnnotation: Texto fornecido para anotação.');
+        } else {
+            // Garante que _anotacoesTexto seja uma string
+            const textoAnotacao = String(_anotacoesTexto);
+            console.log('createAnnotation: Texto fornecido para anotação.');
+            const title = textoAnotacao.split(' ')[0] || 'Anotação sem título';
+            const newAnnotation = {
+                id: new Date().getTime().toString(),
+                title: title,
+                Texto: textoAnotacao
+            };
+            
+            console.log('createAnnotation: Criando nova anotação.', newAnnotation);
+            annotation.save(newAnnotation, function (savedAnnotation) {
+                console.log(`createAnnotation: Anotação salva: ${savedAnnotation.id}`);
+                renderAnnotation(savedAnnotation);
+            });
 
-                const title = _anotacoesTexto.split(' ')[0] || 'Anotação sem título';
+            const logs = `
+                ====== Anotação criada com sucesso =====
 
-                const newAnnotation = {
-                    id: new Date().getTime().toString(),
-                    title: title,
-                    Texto: _anotacoesTexto
-                };
-
-                console.log('createAnnotation: Criando nova anotação.', newAnnotation);
-
-                annotation.save(newAnnotation, function (savedAnnotation) {
-                    console.log(`createAnnotation: Anotação salva: ${savedAnnotation.id}`);
-                    renderAnnotation(savedAnnotation);
-                });
-
-                const logs = `
-                    ====== Anotação criada com sucesso =====
-    
-                    > ID: ${newAnnotation.id}
-                    > Título: ${title}
-                    > Texto: ${_anotacoesTexto}
-                `;
-
-                showAutoCloseAlert(logs, newAnnotation.id);
-                checkEmptyAnnotationsContainer();
-            } else {
-                // console.log('createAnnotation: Nenhum texto fornecido.');
-            }
+                > ID: ${newAnnotation.id}
+                > Título: ${title}
+                > Texto: ${textoAnotacao}
+            `;
+            showAutoCloseAlert(logs, newAnnotation.id);
+            checkEmptyAnnotationsContainer();
         }
     } catch (error) {
         console.error('createAnnotation: Erro ao criar anotação.', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro ao criar anotação',
+            text: 'Não foi possível criar a anotação. Por favor, tente novamente.',
+            heightAuto: false
+        });
     }
 }
 
-document.querySelector(".abrirPlusAnnotation").addEventListener("click", function (event) {
+document.querySelector(".abrirPlusAnnotation")?.addEventListener("click", function (event) {
+    event.stopPropagation();
     createAnnotation()
-})
+});
 // Adiciona o evento de clique no botão de adicionar anotação
 document.querySelector('footer button').addEventListener('click', createAnnotation);
 
@@ -474,7 +442,7 @@ async function removeAnnotation(id) {
                         if (result.isConfirmed) {
                             checkEmptyAnnotationsContainer();
                             Update();
-                            abrirConfigurcoesBaseMenu();
+                            abrirAnotacoes()
                         }
                     })
 
@@ -524,7 +492,7 @@ function removeAnnotationFromUI(annotationId = []) {
                 
                 // Verifica se o contêiner está vazio e toma ações apropriadas
                 checkEmptyAnnotationsContainer();
-                abrirConfigurcoesBaseMenu();
+                abrirAnotacoes()
             } else {
                 console.warn(`Anotação com ID ${annotationId} não encontrada para remoção.`);
             }
@@ -532,7 +500,6 @@ function removeAnnotationFromUI(annotationId = []) {
     }
     
 }
-
 
 // Funções para os comandos
 function limparAnotacoes() {
@@ -552,13 +519,11 @@ function limparAnotacoes() {
             // console.log(dropAnnotation)
 
             removeAnnotationFromUI(dropAnnotation)
-            // window.location.reload();
             checkEmptyAnnotationsContainer();
+            abrirAnotacoes();
         }
     });
 }
-
-
 
 const autoScrollEnabled = true
 
@@ -824,6 +789,13 @@ document.querySelector('#searchInput').addEventListener('input', function () {
 //     }
 //   };
 
+const buttonFilter = document.querySelector("._dropPlushAnnotation");
+const containerFiltroChanger = document.querySelector('.filtros-input-mod');
+
+buttonFilter.addEventListener("click",function(event){
+    event.stopPropagation();
+    filtrarTitulo(event);
+})
 
 function filtrarTitulo() {
 
@@ -869,13 +841,12 @@ function filtrarTitulo() {
     // // filtro.show();
     // return filtro
 
-    const buttonFilter = document.querySelector("._dropPlushAnnotation");
-    const containerFiltroChanger = document.querySelector('.filtros-input-mod');
-
     const filtrar = {
         titulo: (event) => {
+            // console.log(event)
+            
             const idNewFilter = `searchInput-${event.textContent.trim()}`;
-            // console.log(buttonFilter)
+            // console.log(buttonFilter.textContent)
             buttonFilter.textContent = event.textContent;
             containerFiltroChanger.innerHTML = `<input type="search" placeholder="#${event.textContent}..." id="${idNewFilter}">`
 
@@ -896,7 +867,7 @@ function filtrarTitulo() {
         conteudo: (event) => {
         
             const idNewFilter = `searchInput-${event.textContent.trim()}`;
-            // console.log(buttonFilter)
+            // console.log(buttonFilter.textContent)
             buttonFilter.textContent = reduzirTexto(event.textContent, 4);
             containerFiltroChanger.innerHTML = `<input type="search" placeholder="#${event.textContent}..." id="${idNewFilter}">`
 
@@ -944,8 +915,6 @@ function filtrarTitulo() {
 annotation.find({}, function (results) {
     results.forEach(renderAnnotation);
 });
-
-
 
 // Adiciona o evento de clique no botão de adicionar anotação
 document.querySelector('footer button').addEventListener('click', createAnnotation);

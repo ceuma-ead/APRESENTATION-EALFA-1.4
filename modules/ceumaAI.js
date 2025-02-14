@@ -864,21 +864,29 @@ function reflowAI(_class, tema, analisarContexto = "", _reprocessar = null) {
 
 };
 
-document.querySelector('.mudarPosicaoResumo').addEventListener('click', function () {
-    const sidebarMenu = document.querySelector('.resumo-menu');
+// Adicionar verificação se o elemento existe antes de adicionar o event listener
+const mudarPosicaoBtn = document.querySelector('.mudarPosicaoResumo');
+if (mudarPosicaoBtn) {
+    mudarPosicaoBtn.addEventListener('click', function () {
+        const sidebarMenu = document.querySelector('.resumo-menu');
 
-    if ( sidebarMenu .classList.contains('left')) {
-        sidebarMenu .classList.remove('left');
-        sidebarMenu .classList.add('right');
-    } else {
-        sidebarMenu .classList.remove('right');
-        sidebarMenu .classList.add('left');
-    }
-
-    // Atualizar a lógica de clique fora ao mudar a posição
-    document.addEventListener('click', function (evento) {
-        if ( sidebarMenu .classList.contains('resumo-menu') && !sidebar.contains(evento.target) && evento.target !== document.querySelector('.resumo-menu')) {
-            fecharMenuAnotacoes();
+        if (sidebarMenu.classList.contains('left')) {
+            sidebarMenu.classList.remove('left');
+            sidebarMenu.classList.add('right');
+        } else {
+            sidebarMenu.classList.remove('right');
+            sidebarMenu.classList.add('left');
         }
+
+        // Corrigir a referência à variável e remover verificação redundante
+        document.addEventListener('click', function (evento) {
+            const target = evento.target;
+            if (!sidebarMenu.contains(target) && target !== document.querySelector('.resumo-menu')) {
+                fecharMenuAnotacoes();
+            }
+        });
     });
-});
+}
+
+
+const sidebar = document.querySelector('.resumo-menu');

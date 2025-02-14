@@ -115,6 +115,11 @@ class IndicadorClique {
     }
 
     criarIndicadorClique(elemento) {
+        fecharMenuDicionario();
+        fecharMenuAnotacoes();
+        fecharMenuSumario();
+        fecharMenuMarcacao();
+    
         // Usar Tippy para criar o indicador
         const instance = tippy(elemento, {
             content: `<i data-lucide="pointer" class="animate__animated animate__heartBeat  cursor-pointer"></i> Clique aqui`,

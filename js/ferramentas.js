@@ -318,6 +318,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
     const abri_anotacao = document.querySelectorAll('.abrir-annotation');
     abri_anotacao.forEach((openAnnotation, index) => {
         openAnnotation.addEventListener("click", function (event) {
+            event.stopPropagation();
             createAnnotation();
         })
     })
@@ -325,6 +326,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
     const abri_dicionario = document.querySelectorAll('.abrir-dicionario');
     const fechar_dicionario = document.querySelector('.close_dicionario');
     fechar_dicionario.addEventListener("click", function (event) {
+        event.stopPropagation();
         fecharMenuDicionario();
     });
 
@@ -338,6 +340,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
     const abri_resumo = document.querySelectorAll('.abrir-resumo');
     const fechar_resumo = document.querySelector('.close_resumo');
     fechar_resumo.addEventListener("click", function (event) {
+        event.stopPropagation();
         fecharResumo();
     });
 
@@ -382,10 +385,10 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
             allowOutsideClick: false,
             didOpen: () => {
                 Swal.showLoading();
-                const timer = Swal.getPopup().querySelector('b');
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
+                // const timer = Swal.getPopup().querySelector('b');
+                // timerInterval = setInterval(() => {
+                //     timer.textContent = `${Swal.getTimerLeft()}`;
+                // }, 100);
             },
             willClose: () => {
                 clearInterval(timerInterval);
@@ -590,7 +593,8 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
     const containerFlip = document.querySelector("#flip-container");
     const nomeHeaderResumo = document.querySelector(".nome-header-resumo");
 
-    btn_historico.onclick = () => {
+    btn_historico.onclick = (event) => {
+        event.stopPropagation();
         // Alterna a classe 'flip-active' no container
         containerFlip.classList.toggle('flip-active');
 

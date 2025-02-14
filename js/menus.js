@@ -1,11 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
     abrirSumario();
-    abrirAnotacoes();
     checkEmptyResumoContainer();
     checkEmptyResumoHistoricoContainer();
     checkEmptyMarcacaoContainer();
+    checkEmptyAnnotationsContainer()
 
 });
+
+// Função para verificar se o contêiner de anotações está vazio
+function checkEmptyAnnotationsContainer() {
+    const renderMenuDiv = document.querySelector('.render-menu-Annotation');
+
+    // Obtém todos os filhos, exceto a mensagem de "vazio"
+    const children = Array.from(renderMenuDiv.children);
+    const nonEmptyChildren = children.filter(child => !child.classList.contains('empty-annotation-message'));
+
+    // Verifica se o contêiner está vazio, desconsiderando a mensagem de "vazio"
+    if (nonEmptyChildren.length === 0) {
+        // Se a mensagem de "vazio" não estiver presente, adicione-a
+        let emptyMessage = renderMenuDiv.querySelector('.empty-annotation-message');
+        if (!emptyMessage) {
+            emptyMessage = document.createElement('div');
+            emptyMessage.classList.add('empty-annotation-message');
+            emptyMessage.innerHTML = `
+                <div class="d-flex align-content-center flex-column justify-content-center w-100 h-100 align-items-center">
+                    <img src="./assets/list.gif" alt="list-is-empty-unscreen1.gif" style="width:20%;" >
+                    <p style="color:#000;">Nada aqui ainda...</p>
+                </div>
+            `;
+            renderMenuDiv.appendChild(emptyMessage);
+        }
+        return false; // Retorna false porque o contêiner está vazio
+    } else {
+        // Remove a mensagem de "vazio" se ela existir
+        const emptyMessage = renderMenuDiv.querySelector('.empty-annotation-message');
+        if (emptyMessage) {
+            renderMenuDiv.removeChild(emptyMessage);
+        }
+        return true; // Retorna true porque o contêiner tem anotações
+    }
+}
 
 // Função para verificar se o contêiner de resumo está vazio
 function checkEmptyResumoContainer() {
@@ -193,81 +227,57 @@ function fecharMenuSumario() {
     }
 }
 
-// Função para abrir o menu de anotações
 function abrirAnotacoes() {
-    const botaoAbrirAnotacoes = document.querySelector('.openAnnotation');
     const menuAnotacoes = document.querySelector('.sidebar-menu-Annotation');
+    const botaoAbrirAnotacoes = document.querySelector('.openAnnotation');
 
-    botaoAbrirAnotacoes.addEventListener('click', function (evento) {
-        evento.stopPropagation();
+    // verificar se container é vazio pra mudar o icon
+    const iconAnnotation = checkEmptyAnnotationsContainer();
 
-        // verificar se container é vazio pra mudar o icon
-        const iconAnnotation = checkEmptyAnnotationsContainer();
+    // Verificar e remover a classe 'close-annotation' se ela existir
+    if (menuAnotacoes.classList.contains('close-annotation')) {
+        menuAnotacoes.classList.remove('close-annotation');
+    }
 
-        // Verificar e remover a classe 'close-annotation' se ela existir pois ele fecha a 
-        // esquerda
-        if (menuAnotacoes.classList.contains('close-annotation')) {
-            menuAnotacoes.classList.remove('close-annotation');
-        }
+    // Verificar se está à esquerda e adicionar a classe 'close-annotation'
+    if (menuAnotacoes.classList.contains('left')) {
+        menuAnotacoes.classList.remove('left');
+        menuAnotacoes.classList.add('close-annotation');
+    }
 
-        // Verificar se está à esquerda e adicionar a classe 'close-annotation'
-        if (menuAnotacoes.classList.contains('left')) {
-            menuAnotacoes.classList.remove('left');
-            menuAnotacoes.classList.add('close-annotation');
-        }
+    // Fecha o menu de sumário, se estiver aberto
+    fecharMenuSumario();
+    fecharResumo();
+    fecharMenuDicionario();
+    fecharMenuMarcacao();
 
-        // Fecha o menu de sumário, se estiver aberto
-        fecharMenuSumario();
-        fecharResumo();
+    menuAnotacoes.classList.toggle('open-annotation');
 
-        // Chamando a função para fechar a caixa de ferramentas
-        // closeToggleBox(toolBox);
+    if (menuAnotacoes.classList.contains('open-annotation')) {
+        botaoAbrirAnotacoes.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
+    } else {
+        let iconHTML;
 
-        menuAnotacoes.classList.toggle('open-annotation');
-
-        // Pegar ID Personalizado para Mudar o Nome do Tooltip...
-
-
-        if (menuAnotacoes.classList.contains('open-annotation')) {
-            botaoAbrirAnotacoes.innerHTML = `<i class="bi bi-x-lg"></i>`
-        } else {
-
-
-
-            let iconHTML;
-
-            if (iconAnnotation) {
-                filtrarTitulo().destroy(); // Chama a função que precisa ser executada
-                iconHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticker">
-                        <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/>
-                        <path d="M14 3v4a2 2 0 0 0 2 2h4"/>
-                        <path d="M8 13h.01"/>
-                        <path d="M16 13h.01"/>
-                        <path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1"/>
-                    </svg>`;
-            } else {
-                iconHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticky-note">
-                        <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/>
-                        <path d="M15 3v4a2 2 0 0 0 2 2h4"/>
-                    </svg>`;
-            }
-
-            // Atualiza o conteúdo do botão
-            botaoAbrirAnotacoes.innerHTML = iconHTML;
-
-        }
-
-    });
-
-    document.addEventListener('click', function (evento) {
-        if (menuAnotacoes.classList.contains('open-annotation') && !menuAnotacoes.contains(evento.target) && evento.target !== botaoAbrirAnotacoes) {
-            // console.log(filtrarTitulo())
+        if (iconAnnotation) {
             filtrarTitulo().destroy();
-            fecharMenuAnotacoes();
+            iconHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticker">
+                    <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/>
+                    <path d="M14 3v4a2 2 0 0 0 2 2h4"/>
+                    <path d="M8 13h.01"/>
+                    <path d="M16 13h.01"/>
+                    <path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1"/>
+                </svg>`;
+        } else {
+            iconHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticky-note">
+                    <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/>
+                    <path d="M15 3v4a2 2 0 0 0 2 2h4"/>
+                </svg>`;
         }
-    });
+
+        botaoAbrirAnotacoes.innerHTML = iconHTML;
+    }
 }
 
 function fecharMenuAnotacoes() {
@@ -380,7 +390,7 @@ function abrirResumo() {
     fecharMenuDicionario();
     fecharMenuAnotacoes();
     fecharMenuSumario();
-    fecharMenuSumario();
+    fecharMenuMarcacao();
 
     $.ajax({
         url: configURLsdjkwi84ew9oedusjkdlj3948wies?.urls?.config,
@@ -732,6 +742,7 @@ function fecharMenuMarcacao() {
     }
 }
 
+// Abrir marcação btn
 const btn_marcacao = document.querySelector(".marcacao-button");
 btn_marcacao.addEventListener("click", function (event) {
     event.stopPropagation();
