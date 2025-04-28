@@ -1119,6 +1119,9 @@ const api = [
             ]
         },
         "paramentros": {
+            "handTap":{
+                "ativo":false
+            },
             "lupa": {
                 "ativo": false,
                 // "imgs_ativas":[0,1]
@@ -1590,6 +1593,9 @@ const api = [
             ]
         },
         "paramentros": {
+            "handTap":{
+                "ativo":false,
+            },
             "lupa": {
                 "ativo": true,
                 // "imgs_ativas":[0,1]
