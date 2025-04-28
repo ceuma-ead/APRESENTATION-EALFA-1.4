@@ -1,0 +1,111 @@
+{
+    "answers": [
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreta. Enquanto alguns aditivos alimentares podem ter benefícios nutricionais indiretos, como a preservação de vitaminas ou minerais durante o processamento, sua principal função não é nutrir os alimentos, mas sim melhorar suas características físicas, químicas, biológicas ou sensoriais, como mencionado na definição corrigida.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>a) É qualquer substância adicionada aos alimentos durante a sua fabricação ou processamento, com propósito de nutrir e/ ou modificar suas características físicas, químicas, biológicas ou sensoriais. <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreta. Embora alguns aditivos alimentares possam ter propriedades nutritivas, como vitaminas ou minerais adicionados, sua principal função não é necessariamente fornecer nutrição, mas sim melhorar características específicas dos alimentos ou facilitar seu processamento. Portanto, afirmar que os aditivos alimentares são apenas substâncias nutritivas adicionadas aos alimentos é uma descrição incompleta e imprecisa desse grupo de substâncias.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>b) É qualquer substância nutritiva adicionada aos alimentos, com propósito de manter ou melhorar suas propriedades nutricionais. <\/div>\n"
+        },
+
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreta. Essa afirmação está incorreta porque nem todos os aditivos alimentares são necessariamente eliminados do alimento no final do processo de fabricação ou inativados. Alguns aditivos alimentares permanecem ativos no produto final e podem desempenhar um papel contínuo em suas características físicas, químicas, biológicas ou sensoriais.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>c) É todo ingrediente que se emprega intencionalmente na elaboração de matérias- primas, alimentos ou seus ingredientes para obter alguma finalidade tecnológica, devendo essa substância, no final, ser eliminada do alimento ou inativada.  <\/div>\n"
+        },
+        {
+            "correct": true,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Correto. Essa definição abrange uma ampla gama de substâncias, como conservantes, antioxidantes, corantes, aromatizantes, estabilizantes, emulsificantes e acidulantes, entre outros. Esses aditivos desempenham papéis importantes na indústria de alimentos, ajudando a melhorar a segurança alimentar, a estabilidade dos produtos, a aparência, o sabor e a textura dos alimentos, além de facilitar seu processamento e armazenamento.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>d) É qualquer ingrediente adicionado intencionalmente aos alimentos, sem propósito de nutrir, com o objetivo de modificar as características físicas, químicas, biológicas ou sensoriais, durante a fabricação, processamento, preparação, tratamento, embalagem, acondicionamento, armazenagem, transporte ou manipulação de um alimento.  <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreta. Nem todos os aditivos alimentares permanecem no produto final, e aqueles que permanecem podem ser modificados ou inativados durante o processamento ou digestão.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>e) É qualquer substância empregada na fabricação ou preparação de um alimento e que permanece no produto final, ainda que de forma modificada.<\/div>\n"
+        }
+        
+    ],
+    "UI": {
+        "showSolutionButton": "Mostrar resposta",
+        "tryAgainButton": "Tentar novamente",
+        "checkAnswerButton": "Conferir",
+        "tipsLabel": "Show tip",
+        "scoreBarLabel": "Você obteve :num de :total pontos",
+        "tipAvailable": "Tip available",
+        "feedbackAvailable": "Feedback available",
+        "readFeedback": "Read feedback",
+        "wrongAnswer": "Resposta errada",
+        "correctAnswer": "Resposta correta",
+        "shouldCheck": "Should have been checked",
+        "shouldNotCheck": "Should not have been checked",
+        "noInput": "Please answer before viewing the solution",
+        "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+        "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+        "a11yRetry": "Retry the task. Reset all responses and start the task over again."
+    },
+    "question": "<p>Dentre os produtos submetidos ao controle e à fiscalização da Anvisa (Agência Nacional de Vigilância Sanitária), estão incluídos os aditivos alimentares. Em relação à definição de aditivos alimentares, assinale a alternativa correta.<\/p>\n",
+    "behaviour": {
+        "enableRetry": true,
+        "enableSolutionsButton": true,
+        "singlePoint": true,
+        "randomAnswers": false,
+        "showSolutionsRequiresInput": true,
+        "type": "auto",
+        "confirmCheckDialog": false,
+        "confirmRetryDialog": false,
+        "autoCheck": true,
+        "passPercentage": 100,
+        "showScorePoints": true,
+        "enableCheckButton": true
+    },
+    "media": {
+        "disableImageZooming": true
+    },
+    "confirmCheck": {
+        "header": "Finish ?",
+        "body": "Are you sure you wish to finish ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Finish"
+    },
+    "confirmRetry": {
+        "header": "Retry ?",
+        "body": "Are you sure you wish to retry ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Confirm"
+    },
+    "overallFeedback": [
+        {
+            "from": 0,
+            "to": 0,
+            "feedback": "Não se preocupe! Você consegue!"
+        },
+        {
+            "from": 0,
+            "to": 100,
+            "feedback": "Parabéns!"
+        }
+    ]
+}

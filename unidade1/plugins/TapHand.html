@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animações: Clique e Hover</title>
+
+  <!-- Link do Font Awesome (versão 6.4.2, por exemplo) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+
+  <style>
+    /* Ajustes gerais para nosso exemplo */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    .icon-demo {
+      font-size: 3rem; /* Ajusta tamanho do ícone */
+      cursor: pointer; /* Mostra que é clicável, se desejar */
+      display: inline-block;
+      margin: 2rem;
+    }
+
+    /* ========================================== */
+    /* 1) Animação de "clique" infinito (loop)    */
+    /* ========================================== */
+    /* Basta adicionar a classe .clicking-infinite para ativar */
+    .clicking-infinite {
+      animation: clickLoop 2s infinite ease-in-out;
+    }
+
+    @keyframes clickLoop {
+      0% {
+        transform: scale(1) translateY(0);
+      }
+      10% {
+        transform: scale(1.1) translateY(-4px) rotate(-5deg);
+      }
+      20% {
+        transform: scale(1) translateY(0) rotate(0deg);
+      }
+      30% {
+        transform: scale(1.1) translateY(-3px) rotate(4deg);
+      }
+      40% {
+        transform: scale(1) translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: scale(1) translateY(0) rotate(0deg);
+      }
+    }
+
+    /* ========================================== */
+    /* 2) Animação "passando" infinito ao hover   */
+    /* ========================================== */
+    /* Basta adicionar a classe .passing-hover para ativar no hover */
+    .passing-hover {
+      transition: transform 0.3s ease; /* se quiser transição suave */
+      /* Não anima nada inicialmente */
+    }
+    /* Ao passar o mouse (hover), ativa a animação */
+    .passing-hover:hover {
+      animation: passingLoop 2s infinite ease-in-out;
+    }
+
+    @keyframes passingLoop {
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+      25% {
+        transform: translateX(-8px) rotate(-10deg);
+      }
+      50% {
+        transform: translateX(8px) rotate(10deg);
+      }
+      75% {
+        transform: translateX(-6px) rotate(-4deg);
+      }
+      100% {
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>1) Ícone com Clique Infinito (loop)</h2>
+  <i class="fa fa-hand-pointer icon-demo clicking-infinite"></i>
+
+  <h2>2) Ícone com Animação ao Hover (“Passar” infinito)</h2>
+  <i class="fa fa-hand-pointer icon-demo passing-hover"></i>
+
+  <h2>Exemplo de Combinação (outras ideias)</h2>
+  <i id="myDynamicIcon" class="fa fa-hand-pointer icon-demo"></i>
+
+  <br /><br />
+  <button onclick="toggleClicking()">Ativar/Desativar Clique Infinito</button>
+  <button onclick="togglePassing()">Ativar/Desativar Hover "Passar"</button>
+
+  <script>
+    const myDynamicIcon = document.getElementById('myDynamicIcon');
+
+    function toggleClicking() {
+      myDynamicIcon.classList.toggle('clicking-infinite');
+    }
+    function togglePassing() {
+      myDynamicIcon.classList.toggle('passing-hover');
+    }
+  </script>
+</body>
+</html>

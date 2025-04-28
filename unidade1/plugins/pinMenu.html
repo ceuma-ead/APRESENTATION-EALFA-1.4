@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .custom-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            transform: translateX(-200px);
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar.unpinned {
+            position: absolute;
+            cursor: move;
+            user-select: none;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .control-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .control-button:hover {
+            background: #f0f2f5;
+        }
+
+        .control-button.active {
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            color: #4b5563;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background: #f8fafc;
+            color: #2563eb;
+        }
+
+        .menu-item.active {
+            background: #eff6ff;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .menu-item i {
+            font-size: 1.25rem;
+        }
+
+        .toggle-button {
+            position: absolute;
+            right: -40px;
+            top: 10px;
+            background: #fff;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-button:hover {
+            background: #f8fafc;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 2rem;
+            transition: margin-left 0.3s ease;
+            max-width: 900px;
+        }
+
+        .main-content.shifted {
+            margin-left: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 240px;
+                transform: translateX(-190px);
+            }
+            .main-content.shifted {
+                margin-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Dashboard</div>
+                <div class="controls">
+                    <button class="control-button" id="pinButton" title="Fixar/Desafixar menu">
+                        📌
+                    </button>
+                </div>
+            </div>
+
+            <nav class="menu-items">
+                <a href="#" class="menu-item active">
+                    🏠 Início
+                </a>
+                <a href="#" class="menu-item">
+                    📊 Análises
+                </a>
+                <a href="#" class="menu-item">
+                    👥 Usuários
+                </a>
+                <a href="#" class="menu-item">
+                    ⚙️ Configurações
+                </a>
+                <a href="#" class="menu-item">
+                    📝 Relatórios
+                </a>
+            </nav>
+
+            <button class="toggle-button" id="toggleButton">
+                ≡
+            </button>
+        </div>
+
+        <main class="main-content" id="mainContent">
+            <h1>Conteúdo Principal</h1>
+            <p>Este é um exemplo de conteúdo principal da página.</p>
+        </main>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+        const pinButton = document.getElementById('pinButton');
+        const mainContent = document.getElementById('mainContent');
+
+        let isPinned = true;
+        let isOpen = false;
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+
+        // Toggle sidebar
+        toggleButton.addEventListener('click', () => {
+            isOpen = !isOpen;
+            sidebar.classList.toggle('open');
+            mainContent.classList.toggle('shifted');
+        });
+
+        // Pin/Unpin sidebar
+        pinButton.addEventListener('click', () => {
+            isPinned = !isPinned;
+            pinButton.classList.toggle('active');
+            sidebar.classList.toggle('unpinned');
+
+            if (isPinned) {
+                sidebar.style.top = '0px';
+                sidebar.style.left = '0px';
+            }
+        });
+
+        // Drag functionality
+        sidebar.addEventListener('mousedown', (e) => {
+            if (!isPinned && e.target.closest('.sidebar-header')) {
+                isDragging = true;
+                sidebar.style.cursor = 'grabbing';
+                
+                initialX = parseInt(sidebar.style.left) || 0;
+                initialY = parseInt(sidebar.style.top) || 0;
+                startX = e.clientX;
+                startY = e.clientY;
+
+                document.addEventListener('mousemove', onDrag);
+                document.addEventListener('mouseup', stopDrag);
+            }
+        });
+
+        function onDrag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                
+                let newX = initialX + dx;
+                let newY = initialY + dy;
+
+                // Mantenha o menu dentro dos limites do container
+                const containerRect = sidebar.parentElement.getBoundingClientRect();
+                const sidebarRect = sidebar.getBoundingClientRect();
+
+                if (sidebarRect.left < containerRect.left) {
+                    newX = 0;
+                } else if (sidebarRect.right > containerRect.right) {
+                    newX = containerRect.width - sidebarRect.width;
+                }
+
+                if (sidebarRect.top < containerRect.top) {
+                    newY = 0;
+                } else if (sidebarRect.bottom > containerRect.bottom) {
+                    newY = containerRect.height - sidebarRect.height;
+                }
+
+                sidebar.style.left = `${newX}px`;
+                sidebar.style.top = `${newY}px`;
+            }
+        }
+
+        function stopDrag() {
+            isDragging = false;
+            sidebar.style.cursor = 'default';
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', stopDrag);
+        }
+
+        // Double click to reset position
+        sidebar.addEventListener('dblclick', (e) => {
+            if (!isPinned && e.target.closest('.sidebar-header')) {
+                sidebar.style.top = '0px';
+                sidebar.style.left = '0px';
+            }
+        });
+    </script>
+</body>
+</html>

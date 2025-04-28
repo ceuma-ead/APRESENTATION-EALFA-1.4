@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnails Dinâmicas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .thumbnail {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview-container {
+            text-align: center;
+        }
+
+        .preview-img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .preview-info {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-4">
+        <h2 class="text-center mb-4">Livros Disponíveis</h2>
+        <!-- Área para thumbnails -->
+        <div class="row justify-content-center g-4" id="thumbnails-container">
+            <!-- As thumbnails serão carregadas aqui -->
+        </div>
+
+        <!-- Área para a visualização maior -->
+        <div class="preview-container mt-5" id="preview-container">
+            <img id="preview-img" src="" alt="Selecione um livro" class="preview-img d-none">
+            <div class="preview-info d-none" id="preview-info">
+                <h4 id="preview-title"></h4>
+                <p id="preview-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script -->
+    <script>
+        // Dados simulados de um JSON (pode ser substituído por fetch)
+        const livros = [
+            {
+                titulo: "Livro 1: Administração de Serviços",
+                descricao: "Capítulo 2: Planejamento e segurança alimentar.",
+                imagem: "https://via.placeholder.com/200x300",
+                thumbnail: "https://via.placeholder.com/100x150"
+            },
+            {
+                titulo: "Livro 2: Gestão de Competências",
+                descricao: "Capítulo 3: Estratégias e análise de competências.",
+                imagem: "https://via.placeholder.com/200x300",
+                thumbnail: "https://via.placeholder.com/100x150"
+            },
+            {
+                titulo: "Livro 3: Planejamento Estratégico",
+                descricao: "Capítulo 1: Conceitos básicos de estratégia empresarial.",
+                imagem: "https://via.placeholder.com/200x300",
+                thumbnail: "https://via.placeholder.com/100x150"
+            }
+        ];
+
+        const thumbnailsContainer = document.getElementById("thumbnails-container");
+        const previewContainer = document.getElementById("preview-container");
+        const previewImg = document.getElementById("preview-img");
+        const previewTitle = document.getElementById("preview-title");
+        const previewDescription = document.getElementById("preview-description");
+        const previewInfo = document.getElementById("preview-info");
+
+        // Função para criar thumbnails
+        function criarThumbnail(livro, index) {
+            const colDiv = document.createElement("div");
+            colDiv.className = "col-4 col-md-3";
+
+            const imgElement = document.createElement("img");
+            imgElement.src = livro.thumbnail;
+            imgElement.alt = `Thumbnail do ${livro.titulo}`;
+            imgElement.className = "thumbnail img-thumbnail";
+            imgElement.setAttribute("data-index", index);
+
+            // Adiciona evento de clique na thumbnail
+            imgElement.addEventListener("click", () => {
+                carregarPreview(livro);
+            });
+
+            colDiv.appendChild(imgElement);
+            return colDiv;
+        }
+
+        // Função para carregar preview
+        function carregarPreview(livro) {
+            previewImg.src = livro.imagem;
+            previewTitle.textContent = livro.titulo;
+            previewDescription.textContent = livro.descricao;
+
+            // Torna visível o preview
+            previewImg.classList.remove("d-none");
+            previewInfo.classList.remove("d-none");
+        }
+
+        // Renderizar todas as thumbnails
+        livros.forEach((livro, index) => {
+            thumbnailsContainer.appendChild(criarThumbnail(livro, index));
+        });
+    </script>
+</body>
+</html>

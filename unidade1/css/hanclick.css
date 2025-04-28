@@ -1,0 +1,27 @@
+/* Wrapper relativo */
+.relative-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Indicador de clique */
+.click-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1000;
+    animation: bounce 1s infinite;
+}
+
+/* Animação de bounce */
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -70%); }
+}
+
+/* Controle de visibilidade */
+.show-indicators .click-indicator {
+    display: block;
+}
