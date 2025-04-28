@@ -276,14 +276,7 @@ async function criarHandTapIndicator(elemento, item, config, delayForThisEl, ind
         arrow: true,
         zIndex: 2,
         animation: animationTippy,
-        popperOptions: {
-            strategy: 'absolute',
-            modifiers: [
-                { "name": "flip", "enabled": false },
-                { "name": "preventOverflow", "enabled": false },
-                { "name": "hide", "enabled": false },
-            ]
-        },
+
         // Adicionar manipulador de erro (onHidden)
         onHidden(instance) {
             // Limpar recursos quando o tooltip é escondido
