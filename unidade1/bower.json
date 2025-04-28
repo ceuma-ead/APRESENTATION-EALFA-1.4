@@ -191,7 +191,7 @@
         "doc-plugin": "http://textify-js.vercel.app/documentation",
         "static":{
             "url1":"./plugins/textify/Textify.min.js",
-            "url1":"./plugins/textify/dist/gsap.min.dev.js"
+            "url2":"./plugins/textify/dist/gsap.min.dev.js"
         },
         "help":[],
         "commands":[]
@@ -202,7 +202,7 @@
         "doc-plugin": "https://github.com/tunapanda/h5p-standalone",
         "static":{
             "url1":"./",
-            "url1":"./plugins/textify/dist/gsap.min.dev.js"
+            "url2":"./plugins/textify/dist/gsap.min.dev.js"
         },
         "help":[],
         "commands":[]
