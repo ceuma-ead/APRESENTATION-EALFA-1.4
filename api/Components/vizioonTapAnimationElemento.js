@@ -277,12 +277,12 @@ async function criarHandTapIndicator(elemento, item, config, delayForThisEl, ind
         zIndex: 2,
         animation: animationTippy,
         popperOptions: {
-            strategy: 'fixed',
-            // modifiers: [
-            //     { name: 'flip', enabled: false },
-            //     { name: 'preventOverflow', enabled: false },
-            //     { name: 'hide', enabled: false },
-            // ]
+            strategy: 'absolute',
+            modifiers: [
+                { "name": "flip", "enabled": false },
+                { "name": "preventOverflow", "enabled": false },
+                { "name": "hide", "enabled": false },
+            ]
         },
         // Adicionar manipulador de erro (onHidden)
         onHidden(instance) {

@@ -221,11 +221,11 @@ class IndicadorClique {
                     },
                     popperOptions: {
                         strategy: 'absolute',
-                        // modifiers: [
-                        //     { name: 'flip', enabled: false },
-                        //     { name: 'preventOverflow', enabled: false },
-                        //     { name: 'hide', enabled: false },
-                        // ]
+                        modifiers: [
+                            { "name": "flip", "enabled": false },
+                            { "name": "preventOverflow", "enabled": false },
+                            { "name": "hide", "enabled": false },
+                        ]
                     }
                 });
 
