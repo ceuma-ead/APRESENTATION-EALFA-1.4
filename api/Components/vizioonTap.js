@@ -258,7 +258,14 @@ class IndicadorClique {
                         // Registro para depuração
                         // console.log(`Tippy ID ${instance.id} mostrado para elemento`, elemento);
                     },
-                   
+                    popperOptions: {
+                        strategy: 'absolute',
+                        modifiers: [
+                            { "name": "flip", "enabled": false },
+                            { "name": "preventOverflow", "enabled": false },
+                            { "name": "hide", "enabled": false },
+                        ]
+                    }
                 });
 
                 // Marcar o elemento com um atributo customizado
