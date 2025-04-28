@@ -1,0 +1,9 @@
+.tippy-box[data-theme~='azulado'] {
+    background-color: var(--cor-dos-icones-de-anotacao);
+    color: #FF8A00;
+    font-size: 0.9rem;
+}
+
+.tippy-box[data-theme~='azulado'] .tippy-arrow{
+    color:var(--cor-dos-icones-de-anotacao);
+}

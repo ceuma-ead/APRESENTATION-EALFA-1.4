@@ -1,0 +1,111 @@
+{
+    "answers": [
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. É incorreto afirmar que os aditivos não têm a função de adoçantes, pois alguns aditivos alimentares são, de fato, utilizados como adoçantes em certos produtos alimentícios e não em todos.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>a) Adoçante. <\/div>\n"
+        },
+        {
+            "correct": true,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Correto. Esses conservantes desempenham um papel crucial na indústria de alimentos, ajudando a garantir a segurança alimentar, prolongando a vida útil dos produtos e reduzindo o desperdício de alimentos",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>b) Conservante. <\/div>\n"
+        },
+
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. É incorreto afirmar que os aditivos alimentares não têm a função de estabilizantes, pois muitos aditivos são usados exatamente para essa finalidade. Estabilizantes são substâncias adicionadas aos alimentos para manter ou melhorar sua estabilidade física, impedindo a separação de ingredientes, a formação de cristais, a sedimentação ou a aglutinação.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>c) Estabilizante. <\/div>\n"
+        },
+        {
+            "correct":false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. É incorreto afirmar que os aditivos têm a função de fermento químico porque os aditivos alimentares e os fermentos químicos são duas coisas distintas com funções diferentes. Os aditivos são para fins de conservação e os fermentos os fermentos químicos têm uma função específica na produção de alimentos, que é a de causar a fermentação da massa para criar uma textura específica no produto final.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>d) Fermento químico. <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. Embora tanto os aditivos alimentares quanto os realçadores de sabor sejam adicionados aos alimentos, é importante distinguir entre eles devido às diferentes funções que desempenham. Enquanto os aditivos alimentares têm uma variedade de funções, os realçadores de sabor têm um propósito específico de realçar o sabor dos alimentos.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>e) Realçador de sabor. <\/div>\n"
+        }
+        
+    ],
+    "UI": {
+        "showSolutionButton": "Mostrar resposta",
+        "tryAgainButton": "Tentar novamente",
+        "checkAnswerButton": "Conferir",
+        "tipsLabel": "Show tip",
+        "scoreBarLabel": "Você obteve :num de :total pontos",
+        "tipAvailable": "Tip available",
+        "feedbackAvailable": "Feedback available",
+        "readFeedback": "Read feedback",
+        "wrongAnswer": "Resposta errada",
+        "correctAnswer": "Resposta correta",
+        "shouldCheck": "Should have been checked",
+        "shouldNotCheck": "Should not have been checked",
+        "noInput": "Please answer before viewing the solution",
+        "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+        "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+        "a11yRetry": "Retry the task. Reset all responses and start the task over again."
+    },
+    "question": "<p>Aditivos alimentares são substâncias químicas tais como corantes, conservantes, antioxidantes, aromatizantes, realçadores de sabor, adoçantes, dentre outros, na sua grande maioria não utilizadas em casa, que são adicionadas aos alimentos ultraprocessados para dar ou realçar a cor ou o sabor dos alimentos, conservar e aumentar o tempo de duração do produto. Embora cada aditivo utilizado nesses produtos tenha que passar por testes e ser aprovado por autoridades sanitárias, os efeitos de longo prazo sobre a saúde e o efeito cumulativo da exposição a vários aditivos nem sempre são bem conhecidos. Os riscos à saúde são maiores quando o consumo ultrapassa a recomendação máxima permitida, que é determinada de acordo com o peso da pessoa. Como o peso da criança é muito menor que o de jovens e adultos, mesmo consumindo quantidades não muito grandes dos produtos, ela tem mais chance de ultrapassar a quantidade máxima de aditivos. Benzoato de sódio é um aditivo que aparece no rótulo de alguns alimentos ultraprocessados, cuja função é de: <\/p>\n",
+    "behaviour": {
+        "enableRetry": true,
+        "enableSolutionsButton": true,
+        "singlePoint": true,
+        "randomAnswers": false,
+        "showSolutionsRequiresInput": true,
+        "type": "auto",
+        "confirmCheckDialog": false,
+        "confirmRetryDialog": false,
+        "autoCheck": true,
+        "passPercentage": 100,
+        "showScorePoints": true,
+        "enableCheckButton": true
+    },
+    "media": {
+        "disableImageZooming": true
+    },
+    "confirmCheck": {
+        "header": "Finish ?",
+        "body": "Are you sure you wish to finish ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Finish"
+    },
+    "confirmRetry": {
+        "header": "Retry ?",
+        "body": "Are you sure you wish to retry ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Confirm"
+    },
+    "overallFeedback": [
+        {
+            "from": 0,
+            "to": 0,
+            "feedback": "Não se preocupe! Você consegue!"
+        },
+        {
+            "from": 0,
+            "to": 100,
+            "feedback": "Parabéns!"
+        }
+    ]
+}

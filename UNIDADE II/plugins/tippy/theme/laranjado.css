@@ -1,0 +1,9 @@
+.tippy-box[data-theme~='laranjado'] {
+    background-color: #FF8A00;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.tippy-box[data-theme~='laranjado'] .tippy-arrow{
+    color: #FF8A00;
+}
