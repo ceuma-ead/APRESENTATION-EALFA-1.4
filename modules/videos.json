@@ -1,0 +1,18 @@
+[
+    {   
+        "configuracao":{
+            "plugin":"video",
+            "version":1,
+            "ativarVideo":true,
+            "moduloTranscritor":false
+        } 
+    },
+    {
+   
+        "_ativo":true,
+        "dataThumbSrc":"https://i.vimeocdn.com/video/1923068285-20fcd826a48844a93206fb0b8d321229c8226d84bed3c8de3b1227455e215cf0-d_142x80?r=pad",
+        "srcVideo":"https://player.vimeo.com/video/1006364423?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        "attrFrame":"allow = [ autoplay ; fullscreen ; ] | class=[ iframe-video ] "
+    }
+   
+]

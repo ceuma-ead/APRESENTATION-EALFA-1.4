@@ -1,0 +1,126 @@
+.componente-link-vizioon-page-drop {
+    color: #2563eb;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    top: calc(100% + 8px);
+    left: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-8px);
+    visibility: hidden;
+    opacity: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 9999;
+    padding: 6px;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+}
+
+
+.componente-link-vizioon-page-dro-icon-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    color: #4b5563;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin: 2px 0;
+    font-size: var(--font-para-paragrafos);
+}
+
+.componente-link-vizioon-page-dro-icon-menu-item:hover {
+    background-color: #f8fafc;
+    color: #2563eb;
+    transform: translateX(2px);
+}
+
+.componente-link-vizioon-page-dro-icon-menu-item:active {
+    background-color: #f1f5f9;
+    transform: translateX(2px) scale(0.98);
+}
+
+.componente-link-vizioon-page-dro-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.componente-link-vizioon-page-dro-icon-menu-item:hover .componente-link-vizioon-page-dro-icon {
+    transform: scale(1.1);
+    color: #2563eb;
+}
+
+/* Adicionar separador sutil entre os itens */
+.componente-link-vizioon-page-dro-icon-menu-item:not(:last-child) {
+    border-bottom: 1px solid #f1f4f9;
+}
+
+/* Animação suave ao aparecer */
+.menu.visible {
+    animation: menuFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (min-width: 1520px) {
+}
+
+@media screen and (max-width: 1366px) {
+
+}
+
+@media screen and (max-width: 1200px) {
+    
+}
+
+@media screen and (max-width: 992px) {
+   
+}
+
+@media screen and (max-width: 768px) {
+   
+}
+
+@media screen and (max-width: 600px) {
+   
+}
+
+@media screen and (max-width: 480px) {
+    
+}
+
+@media screen and (max-width: 320px) {
+  
+}

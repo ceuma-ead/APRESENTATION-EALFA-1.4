@@ -1,0 +1,111 @@
+{
+    "answers": [
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. Pasteurização não é exclusivamente realizada a temperaturas superiores a 100°C, e seu principal objetivo é garantir a segurança alimentar ao reduzir a carga microbiana dos alimentos, o que pode, por consequência, aumentar a vida útil dos produtos, mas esse não é o único propósito do processo. ",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>a) A pasteurização é um tratamento térmico, que utiliza temperaturas superiores a 100°C e tem como objetivo o aumento da vida de prateleira dos alimentos. <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. Porque a pasteurização, quando realizada adequadamente, não prejudica necessariamente o processo de fermentação durante a fabricação de queijos. Na verdade, a pasteurização é comumente empregada na produção de queijos para garantir a segurança alimentar, eliminando ou reduzindo significativamente a carga microbiana presente no leite. ",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>b) No processo de fabricação de queijos, a pasteurização pode prejudicar o processo de fermentação. <\/div>\n"
+        },
+
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreta. Embora a pasteurização seja um método importante para reduzir o risco de contaminação por microrganismos patogênicos, não é garantido que elimine todos os patógenos, incluindo o Bacillus cereus, especialmente se não for aplicada corretamente. Medidas adicionais de higiene e controle de qualidade podem ser necessárias para garantir a segurança do suco de frutas pasteurizado. ",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>c) A pasteurização de suco de frutas resulta na eliminação de todos os microrganismos patogênicos, como o Bacillus cereus. <\/div>\n"
+        },
+        {
+            "correct": true,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Correto. Ao determinar o tratamento térmico necessário para garantir a segurança e a qualidade dos alimentos, o pH é um fator importante a ser considerado, pois afeta diretamente a resistência dos microrganismos ao calor e, consequentemente, a eficácia do tratamento térmico. ",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>d) A intensidade do tratamento e sua influência sobre a vida de prateleira do produto são influenciadas principalmente pelo pH. <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "Incorreto. Enquanto a pasteurização reduz significativamente a quantidade de microrganismos presentes nos alimentos, alguns microrganismos podem sobreviver ao processo, especialmente se estiverem em formas resistentes ao calor, como os esporos bacterianos. Por isso, é importante seguir práticas adequadas de higiene e armazenamento para garantir a segurança alimentar, mesmo após a pasteurização.",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>e) No processo de pasteurização, são eliminados todos os microrganismos presentes nos alimentos. <\/div>\n"
+        }
+        
+    ],
+    "UI": {
+        "showSolutionButton": "Mostrar resposta",
+        "tryAgainButton": "Tentar novamente",
+        "checkAnswerButton": "Conferir",
+        "tipsLabel": "Show tip",
+        "scoreBarLabel": "Você obteve :num de :total pontos",
+        "tipAvailable": "Tip available",
+        "feedbackAvailable": "Feedback available",
+        "readFeedback": "Read feedback",
+        "wrongAnswer": "Resposta errada",
+        "correctAnswer": "Resposta correta",
+        "shouldCheck": "Should have been checked",
+        "shouldNotCheck": "Should not have been checked",
+        "noInput": "Please answer before viewing the solution",
+        "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+        "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+        "a11yRetry": "Retry the task. Reset all responses and start the task over again."
+    },
+    "question": "<p>A pasteurização é um processo térmico desenvolvido por Louis Pasteur, em 1864, que tem como objetivo a eliminação de toda flora bacteriana patogênica ou deterioradores de baixa resistência ao calor. Sobre o processo de pasteurização em alimentos, assinale a alternativa correta.<\/p>\n",
+    "behaviour": {
+        "enableRetry": true,
+        "enableSolutionsButton": true,
+        "singlePoint": true,
+        "randomAnswers": false,
+        "showSolutionsRequiresInput": true,
+        "type": "auto",
+        "confirmCheckDialog": false,
+        "confirmRetryDialog": false,
+        "autoCheck": true,
+        "passPercentage": 100,
+        "showScorePoints": true,
+        "enableCheckButton": true
+    },
+    "media": {
+        "disableImageZooming": true
+    },
+    "confirmCheck": {
+        "header": "Finish ?",
+        "body": "Are you sure you wish to finish ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Finish"
+    },
+    "confirmRetry": {
+        "header": "Retry ?",
+        "body": "Are you sure you wish to retry ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Confirm"
+    },
+    "overallFeedback": [
+        {
+            "from": 0,
+            "to": 0,
+            "feedback": "Não se preocupe! Você consegue!"
+        },
+        {
+            "from": 0,
+            "to": 100,
+            "feedback": "Parabéns!"
+        }
+    ]
+}
