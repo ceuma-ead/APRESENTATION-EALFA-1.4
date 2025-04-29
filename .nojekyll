@@ -1,4 +1,4 @@
 touch .nojekyll
 git add .nojekyll
-git commit -m "Adiciona .nojekyll para pular processamento Jekyll"
+git commit -m "pulando o processamento de Jekyll..."
 git push
